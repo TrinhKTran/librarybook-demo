@@ -61,3 +61,10 @@ One-to-many: User → CheckoutRecords
 
 Late fees → Computed from due date
 
+Important URLs for swagger and api-doc
+After setup, these endpoints will be available:
+
+Swagger UI: http://localhost:8080/swagger-ui.html
+OpenAPI JSON: http://localhost:8080/api-docs
+
+
