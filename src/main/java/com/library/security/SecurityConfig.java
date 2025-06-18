@@ -36,8 +36,17 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(csrf -> csrf.disable())  // new way to disable CSRF
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
+               .authorizeHttpRequests(auth -> auth
+                         .requestMatchers("/api/auth/**","/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/api-docs/**",
+                                "/v3/api-docs/**",
+                                "/swagger-resources/**",
+                                "/webjars/**"
+                        ).permitAll()
+                        // Allow actuator endpoints (optional)
+                        .requestMatchers("/actuator/**").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

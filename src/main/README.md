@@ -1,3 +1,4 @@
+
 First: Clarifying the Scope
 Before designing, here are a few key questions to clarify:
 
@@ -59,3 +60,7 @@ One-to-many: User → CheckoutRecords
 
 Late fees → Computed from due date
 
+Important URLs for swagger documentation:
+
+Swagger UI: http://localhost:8080/swagger-ui.html
+OpenAPI JSON: http://localhost:8080/api-docs
