@@ -1,0 +1,143 @@
+{
+  "info": {
+    "name": "Library BookController API",
+    "_postman_id": "b2d3f4a7-9a8c-4c5b-bb19-123456789abc",
+    "description": "Postman collection for BookController endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Search Books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/search?title=Harry Potter",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","books","search"],
+          "query": [
+            {
+              "key": "title",
+              "value": "Harry Potter"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Checkout Book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/checkout/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","books","checkout","1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Checkin Book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/checkin/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","books","checkin","1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Book (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"New Book Title\",\n  \"author\": \"Author Name\",\n  \"isbn\": \"1234567890\",\n  \"available\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books/admin/add",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","books","admin","add"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Book (Admin)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/admin/delete/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","books","admin","delete","1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Late Fee Report (Admin)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/admin/report",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","books","admin","report"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "jwt_token",
+      "value": ""
+    }
+  ]
+}
